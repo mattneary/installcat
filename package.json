@@ -11,5 +11,8 @@
   },
   "bin": {
     "installcat": "index.js"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
   }
 }
