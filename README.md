@@ -1,26 +1,30 @@
 # weave
+Bundle your dependencies on install for easy HTML includes.
 
 ## usage
 
 ```sh
+$ ls js/
 $ cat weave.json
 {
-  "lodash": "index.js",
-  "ramda": "dist/ramda.js"
+  "js/build.js": {
+    "ramda": "dist/ramda.js"
+  }
 }
 $ cat package.json
 {
-  "dependencies": {
-    "lodash": "*",
-    "ramda": "*"
+  ...
+  "devDependencies": {
+    "weave": "*"
   },
   "scripts": {
-    "prepublish": "weave lib/bundle.js"
+    "prepublish": "weave"
   }
 }
 $ npm install
-$ cat lib/bindle.js
-/* lodash... */
-/* ramda... */
+$ ls js/
+build.js
 ```
+
+See `examples/` for an example configuration.
 

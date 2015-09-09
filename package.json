@@ -1,0 +1,15 @@
+{
+  "name": "weave",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Matt Neary",
+  "license": "MIT",
+  "dependencies": {
+    "q": "1.4.1",
+    "ramda": "0.17.1"
+  },
+  "bin": {
+    "weave": "index.js"
+  }
+}

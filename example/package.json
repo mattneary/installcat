@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "dependencies": {
+    "q": "1.4.1",
+    "ramda": "0.17.1"
+  },
+  "devDependencies": {
+    "weave": "file:.."
+  },
+  "scripts": {
+    "prepublish": "weave"
+  }
+}
