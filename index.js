@@ -16,6 +16,7 @@ function buildBundle(name, spec) {
       R.keys(spec),
       R.values(spec)));
   return Q.all(R.map(readFile, paths))
+   .then(R.compose(R.reduce(R.concat, []), R.map(R.compose(R.concat(R.__, [new Buffer('\n;')]), R.of))))
    .then(Buffer.concat)
    .then(R.partial(writeFile, name))
    .then(R.tap(function () {
@@ -37,7 +38,7 @@ catFile
       R.zip(R.keys(bundles), R.values(bundles))))
   })
   .catch(function (err) {
-    console.error('Could not process dependencies', err);
+    console.error('Could not process dependencies', err.stack);
     process.exit(1);
   });
 
