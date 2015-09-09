@@ -35,5 +35,9 @@ catFile
     return Q.all(R.map(
       R.apply(buildBundle),
       R.zip(R.keys(bundles), R.values(bundles))))
+  })
+  .catch(function (err) {
+    console.error('Could not process dependencies', err);
+    process.exit(1);
   });
 
