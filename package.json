@@ -1,5 +1,5 @@
 {
-  "name": "weave",
+  "name": "installcat",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
     "ramda": "0.17.1"
   },
   "bin": {
-    "weave": "index.js"
+    "installcat": "index.js"
   }
 }

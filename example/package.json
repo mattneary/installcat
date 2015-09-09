@@ -5,9 +5,9 @@
     "ramda": "0.17.1"
   },
   "devDependencies": {
-    "weave": "file:.."
+    "installcat": "file:.."
   },
   "scripts": {
-    "prepublish": "weave"
+    "prepublish": "installcat"
   }
 }

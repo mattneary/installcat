@@ -6,7 +6,7 @@ var fs = require('fs'),
 
 var readFile = Q.denodeify(fs.readFile);
 var writeFile = Q.denodeify(fs.writeFile);
-var weaveFile = readFile('weave.json', 'utf-8');
+var catFile = readFile('installcat.json', 'utf-8');
 
 function buildBundle(name, spec) {
   var paths = R.map(
@@ -23,12 +23,12 @@ function buildBundle(name, spec) {
    }));
 }
 
-weaveFile
+catFile
   .then(function (data) {
     return JSON.parse(data + '');
   })
   .catch(function (err) {
-    console.error('Could not read weave.json');
+    console.error('Could not read installcat.json');
     process.exit(1);
   })
   .then(function (bundles) {

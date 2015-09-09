@@ -1,11 +1,11 @@
-# weave
+# installcat
 Bundle your dependencies on install for easy HTML includes.
 
 ## usage
 
 ```sh
 $ ls js/
-$ cat weave.json
+$ cat installcat.json
 {
   "js/build.js": {
     "ramda": "dist/ramda.js"
@@ -15,10 +15,10 @@ $ cat package.json
 {
   ...
   "devDependencies": {
-    "weave": "*"
+    "installcat": "*"
   },
   "scripts": {
-    "prepublish": "weave"
+    "prepublish": "installcat"
   }
 }
 $ npm install
