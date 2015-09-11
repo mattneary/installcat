@@ -13,7 +13,7 @@ $ ls js/
 $ cat installcat.json
 {
   "js/build.js": {
-    "ramda": "dist/ramda.js"
+    "ramda": "dist/ramda.js",
     "foo": "node_modules/foo/index.js"
   }
 }
@@ -45,7 +45,7 @@ Equivalent to
   },
   "installcat": {
     "js/build.js": {
-      "ramda": "dist/ramda.js"
+      "ramda": "dist/ramda.js",
       "foo": "node_modules/foo/index.js"
     }
   }
