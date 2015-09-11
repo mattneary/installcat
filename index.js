@@ -3,11 +3,18 @@
 var fs = require('fs'),
     path = require('path'),
     R = require('ramda'),
-    Q = require('q');
+    Q = require('q'),
+    log = require('debug')('icat');
 
+var exists = fs.existsSync;
 var readFile = Q.denodeify(fs.readFile);
 var writeFile = Q.denodeify(fs.writeFile);
-var catFile = readFile('installcat.json', 'utf-8');
+var settingsFile = 'installcat.json';
+var catFile = exists(settingsFile) ? readFile(settingsFile, 'utf-8') : readFile('package.json', 'utf-8');
+
+function isJavaScriptFilename(filename) {
+  return /\.js$/.test(filename);
+}
 
 function buildBundle(name, spec) {
   var paths = R.map(
@@ -30,10 +37,27 @@ catFile
     return JSON.parse(data + '');
   })
   .catch(function (err) {
-    console.error('Could not read installcat.json');
+    console.error('Could not read settings file', settingsFile);
     process.exit(1);
   })
+  .then(function (json) {
+    if (json.installcat) {
+      log('json has installcat key, probably from package.json');
+      return json.installcat;
+    } else {
+      return json;
+    }
+  })
+  .then(function leaveJavaScriptBundles(bundles) {
+    Object.keys(bundles).forEach(function (target) {
+      if (!isJavaScriptFilename(target)) {
+        delete bundles[target];
+      }
+    });
+    return bundles;
+  })
   .then(function (bundles) {
+    log('found following bundles', bundles);
     return Q.all(R.map(
       R.apply(buildBundle),
       R.zip(R.keys(bundles), R.values(bundles))))

@@ -5,12 +5,16 @@ Bundle npm dependencies on install, for easy HTML includes.
 
 ## usage
 
+List each bundle to be build in a separate file `installcat.json` or inside `package.json`
+under property `installcat`
+
 ```sh
 $ ls js/
 $ cat installcat.json
 {
   "js/build.js": {
     "ramda": "dist/ramda.js"
+    "foo": "node_modules/foo/index.js"
   }
 }
 $ cat package.json
@@ -26,6 +30,26 @@ $ cat package.json
 $ npm install
 $ ls js/
 build.js
+```
+
+File `build.js` has the concatenated `dist/ramda.js` and `node_modules/foo/index.js` contents.
+Equivalent to
+
+```json
+{
+  "devDependencies": {
+    "installcat": "*"
+  },
+  "scripts": {
+    "prepublish": "installcat"
+  },
+  "installcat": {
+    "js/build.js": {
+      "ramda": "dist/ramda.js"
+      "foo": "node_modules/foo/index.js"
+    }
+  }
+}
 ```
 
 See `example/` for an example configuration.
