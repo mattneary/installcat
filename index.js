@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+
 var fs = require('fs'),
     path = require('path'),
     R = require('ramda'),
-    Q = require('Q');
+    Q = require('q');
 
 var readFile = Q.denodeify(fs.readFile);
 var writeFile = Q.denodeify(fs.writeFile);
