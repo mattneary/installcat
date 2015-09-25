@@ -54,3 +54,5 @@ Equivalent to
 
 See `example/` for an example configuration.
 
+### 3rd party modules used
+
