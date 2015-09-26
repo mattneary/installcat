@@ -53,7 +53,7 @@ See `example/` for an example configuration.
 
 ### 3rd party modules used
 
-- debug - small debugging utility
-- q - A library for promises (CommonJS/Promises/A,B,D)
-- ramda - A practical functional library for JavaScript programmers.
+- [debug](https://github.com/visionmedia/debug) - small debugging utility
+- [q](https://github.com/kriskowal/q) - A library for promises (CommonJS/Promises/A,B,D)
+- [ramda](https://www.github.com/ramda/ramda) - A practical functional library for JavaScript programmers.
 

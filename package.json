@@ -18,7 +18,7 @@
     "registry": "http://registry.npmjs.org/"
   },
   "devDependencies": {
-    "modules-used": "1.1.0",
+    "modules-used": "1.2.0",
     "pre-git": "0.6.2",
     "update-markdown": "1.1.2"
   },
