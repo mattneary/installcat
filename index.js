@@ -16,13 +16,32 @@ function isJavaScriptFilename(filename) {
   return /\.js$/.test(filename);
 }
 
+function isRelative(filename) {
+  return filename[0] === '.';
+}
+
+function relativeOrAbsolute(filename) {
+  if (isRelative(filename)) {
+    return filename;
+  }
+  return path.join('node_modules', filename)
+}
+
+function joinIfAbsolute(start, finish) {
+  if (isRelative(finish)) {
+    return finish;
+  }
+  return path.join(start, finish)
+}
+
 function buildBundle(name, spec) {
   var paths = R.map(
-    R.partial(path.join, 'node_modules'),
+    relativeOrAbsolute,
     R.zipWith(
-      path.join,
+      joinIfAbsolute,
       R.keys(spec),
       R.values(spec)));
+  console.log(paths);
   return Q.all(R.map(readFile, paths))
    .then(R.compose(R.reduce(R.concat, []), R.map(R.compose(R.concat(R.__, [new Buffer('\n;')]), R.of))))
    .then(Buffer.concat)

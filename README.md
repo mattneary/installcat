@@ -51,6 +51,26 @@ Equivalent to
 ```
 See `example/` for an example configuration.
 
+The dependencies are assumed to be relative to the `node_modules` folder, unless you specify
+relative path. For example, if you folder structure is
+
+```
+my-file.js
+node_modules/
+  foo/dist/foo.js
+```
+
+Then you can concatenate both the dependency and your file
+
+```json
+"installcat": {
+  "dist/build.js": {
+    "foo": "dist/index.js",
+    "my-code": "./my-file.js"
+  }
+}
+```
+
 ### 3rd party modules used
 
 - [debug](https://github.com/visionmedia/debug) - small debugging utility
