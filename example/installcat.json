@@ -1,6 +1,6 @@
 {
   "build.js": {
-    "ramda": "dist/ramda.js",
+    "ramda": "../node_modules/ramda/dist/ramda.js",
     "Q": "q.js"
   }
 }
