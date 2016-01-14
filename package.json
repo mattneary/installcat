@@ -1,6 +1,6 @@
 {
   "name": "installcat",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "author": "Matt Neary",
@@ -11,6 +11,10 @@
     "ramda": "0.17.1"
   },
   "homepage": "https://github.com/mattneary/installcat",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mattneary/installcat.git"
+  },
   "bin": {
     "installcat": "index.js"
   },
