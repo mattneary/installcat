@@ -59,7 +59,6 @@ my-file.js
 node_modules/
   foo/dist/foo.js
 ```
-
 Then you can concatenate both the dependency and your file
 
 ```json
@@ -70,7 +69,6 @@ Then you can concatenate both the dependency and your file
   }
 }
 ```
-
 ### 3rd party modules used
 
 - [debug](https://github.com/visionmedia/debug) - small debugging utility
